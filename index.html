@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jothi | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Jothi.</div>
+    <ul class="nav-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#aboutme">About me</a></li>
+        <li><a href="#contact" class="contact-btn">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+    <!-- BACKGROUND TEXT -->
+    <h1 class="bg-text">
+  <span class="bg-left">HI</span>
+  <span class="bg-right">I'M</span>
+</h1>
+
+
+
+    <!-- MAIN NAME -->
+    <h2 class="main-name">JOTHI</h2>
+
+    <!-- IMAGE -->
+    <div class="hero-image">
+        <img src="/Assets/kurti.jpg" alt="Profile">
+    </div>
+
+    <!-- SUB TEXT -->
+    <p class="subtitle">
+        A passionate learner who believes every skill is a new chapter.
+    </p>
+
+</section>
+
+
+<section class="skills-section" id="skills">
+    <h2 class="skills-title reveal">Skills</h2>
+
+  <div class="skills-zigzag reveal">
+
+    <div class="skill-box left">
+      <i class="fa-brands fa-html5"></i>
+      <h3>HTML</h3>
+      <p>Semantic structure and accessible markup.</p>
+    </div>
+
+    <div class="skill-box center">
+      <i class="fa-brands fa-css3-alt"></i>
+      <h3>CSS</h3>
+      <p>Responsive layouts and smooth animations.</p>
+    </div>
+
+    <div class="skill-box right">
+      <i class="fa-brands fa-js"></i>
+      <h3>JavaScript</h3>
+      <p>Interactive UI and dynamic behaviors.</p>
+    </div>
+
+    <div class="skill-box left offset">
+      <i class="fa-brands fa-python"></i>
+      <h3>Python</h3>
+      <p>Backend logic and data processing.</p>
+    </div>
+
+    <div class="skill-box center">
+      <i class="fa-solid fa-bolt"></i>
+      <h3>FastAPI</h3>
+      <p>High-performance REST APIs.</p>
+    </div>
+
+    <div class="skill-box right offset">
+      <i class="fa-solid fa-database"></i>
+      <h3>PostgreSQL</h3>
+      <p>Relational database design and queries.</p>
+    </div>
+    <div class="skill-box left offset">
+  <i class="fa-solid fa-puzzle-piece"></i>
+  <h3>Problem Solving</h3>
+  <p>Logical thinking and efficient solution building.</p>
+</div>
+
+<div class="skill-box center">
+  <i class="fa-brands fa-github"></i>
+  <h3>GitHub</h3>
+  <p>Version control and collaborative workflows.</p>
+</div>
+  </div>
+</section>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.2 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+ 
+
+<section class="projects-section" id="projects">
+
+  <div class="projects-header">
+    <h2>My Projects</h2>
+    <p>
+      These projects represent my learning journey and the skills I have gained
+      through hands-on practice.
+    </p>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- PROJECT 1 -->
+    <div class="project-card reveal">
+      <h3>ZUKART</h3>
+      <span class="project-type">50 Days Project</span>
+
+      <p class="project-desc">
+        A static e-commerce website built using only HTML and CSS. This project
+        helped me understand layouts, styling, and user-friendly design.
+      </p>
+
+      <div class="tech-stack">
+        <span>HTML</span>
+        <span>CSS</span>
+      </div>
+
+      <a href="https://jothi7542.github.io/ZUKART-Static-website/"  class="project-btn">View on GitHub</a>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="project-card reveal">
+      <h3>Counselly</h3>
+      <span class="project-type">Full Stack Project</span>
+
+      <p class="project-desc">
+        A psychology counselling website designed to connect users with expert
+        counsellors for professional mental health support.
+      </p>
+
+      <div class="tech-stack">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Python</span>
+        <span>SQL</span>
+      </div>
+
+      <a href="https://jothi7542.github.io/Full_stack_project_counselly/" class="project-btn">View on GitHub</a>
+    </div>
+
+  </div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+          observer.unobserve(entry.target); // run once only
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  reveals.forEach(card => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    card.style.transition = "0.8s ease";
+    observer.observe(card);
+  });
+
+});
+</script>
+<section class="life-skills">
+
+  <h2 class="section-title reveal">Life Skills Projects</h2>
+
+  <!-- PROJECT 1 -->
+  <div class="life-card reveal">
+    <div class="life-text">
+      <h3>Product Building Challenge</h3>
+      <p class="sub">
+        Product Building Challenge at Freshworks STS Software Academy
+      </p>
+
+      <p>
+        The challenge was to build a creative and useful product with a budget of ₹500.
+        After brainstorming many ideas and multiple reviews, our product idea
+        <strong>“Portable Desk”</strong> was approved.
+      </p>
+
+      <p>
+        Our squad, <strong>Virtual Warriors</strong>, divided responsibilities and worked
+        collaboratively to implement the product. We also focused on branding by
+        designing a logo, pamphlets, and stickers to make the product market-ready.
+      </p>
+
+      <p>
+        On the final day, we presented the product to external guests from Freshworks,
+        received valuable feedback, and secured <strong>Second Prize</strong>.
+        This experience was a proud and memorable milestone.
+      </p>
+    </div>
+
+    <div class="life-images slider">
+      <img src="/Assets/pro_cer.jpg" class="active">
+      <img src="/Assets/sriraj.jpg">
+      <img src="/Assets/pamphlet.jpg">
+      <img src="/Assets/dj_mam.jpg">
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="life-card reveal">
+    <div class="life-text">
+      <h3>Workplace Study Project</h3>
+
+      <p>
+        This project involved an external workplace study conducted through LinkedIn.
+        Our coaches assigned individual roles to each member. I was assigned the
+        <strong>DevOps and QA</strong> role.
+      </p>
+
+      <p>
+        I interacted with professionals working in these roles, collected insights
+        about their responsibilities, tools, and workflows, and documented the findings.
+      </p>
+
+      <p>
+        Our squad later presented the individual role studies as a team.
+        This project significantly improved my communication skills,
+        presentation confidence, and ability to collaborate and support team members.
+      </p>
+
+      <a href="https://www.canva.com/design/DAG47N1bgl0/VMIqYt0g-eMav53xwjyuNg/edit?utm_content=DAG47N1bgl0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="ppt-btn">
+        View Presentation
+      </a>
+    </div>
+
+   <div class="life-images">
+    <img src="./Assets/link_ph.jpg" alt="LinkedIn Interaction">
+    <img src="./Assets/me.png" alt="Presentation">
+  </div>
+  </div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* Reveal animation */
+  const reveals = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    reveals.forEach(el => {
+      el.classList.add('hidden');
+      observer.observe(el);
+    });
+  }
+
+  /* Image slider */
+   document.querySelectorAll('.life-images').forEach(box => {
+    const imgs = box.querySelectorAll('img');
+    let i = 0;
+
+    imgs[0].classList.add('active'); // first image visible
+
+    setInterval(() => {
+      imgs[i].classList.remove('active');
+      i = (i + 1) % imgs.length;
+      imgs[i].classList.add('active');
+    }, 2500);
+  });
+
+});
+</script>
+
+<section class="about-section" id="aboutme">
+     <h2 class="about-title">About Me</h2>
+
+  <div class="about-container">
+
+    <!-- LEFT SIDE -->
+    <div class="about-left reveal">
+      <p class="about-tag">A person who loves to</p>
+
+      <div class="about-flow">
+
+        <div class="flow-item">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Learn</span>
+        </div>
+
+        <div class="flow-arrow"></div>
+
+        <div class="flow-item">
+          <i class="fa-solid fa-plane"></i>
+          <span>Travel</span>
+        </div>
+
+        <div class="flow-arrow"></div>
+
+        <div class="flow-item">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Achieve</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="about-right reveal">
+      <h3>Hello everyone,</h3>
+
+      <p>
+        I’m <strong>Jothi S</strong>, from <strong>Chennai</strong>.
+        I’m currently a student at <strong>Freshworks STS Software Academy</strong>.
+      </p>
+
+      <p>
+        I completed my BCA first year, but due to financial difficulties,
+        I had to discontinue my studies.
+      </p>
+
+      <p>
+        One of my school seniors informed me about the opportunity at
+        Freshworks Software Academy. I applied, cleared the written test,
+        and was selected through an in-person interview.
+      </p>
+
+      <p>
+        At the academy, I learned Full Stack Development and successfully
+        completed two projects.
+      </p>
+
+      <p>
+        My goal is to become a <strong>Software Developer</strong>, and my dream
+        company is <strong>ZOHO</strong>. I am continuously learning full-stack
+        development to achieve this goal.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="about-page">
+
+  <!-- HOBBIES -->
+  <div class="hobbies-section">
+    <h2 class="section-title center">My Hobbies</h2>
+
+    <div class="hobby-marquee">
+      <div class="hobby-track">
+        <span>Dance</span>
+        <span>Painting</span>
+        <span>Drawing</span>
+        <span>Reading Horror Books</span>
+        <span>Craft</span>
+        <span>Listening Songs</span>
+
+        <!-- duplicate -->
+        <span>Dance</span>
+        <span>Painting</span>
+        <span>Drawing</span>
+        <span>Reading Horror Books</span>
+        <span>Craft</span>
+        <span>Listening Songs</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ACHIEVEMENTS -->
+  <div class="achievements-wrapper">
+
+  <h2 class="section-title center">Achievements</h2>
+
+  <div class="achievement-row">
+
+    <!-- World Record -->
+    <div class="achievement-card active">
+      <img src="/Assets/certificate_of.png" alt="World Record">
+
+      <div class="achievement-text">
+        <h3>World Record</h3>
+        <p>
+          I participated in creating a micro forest by planting trees as part of a
+          robot-based project in 2020, during my 8th standard. This experience helped
+          me understand teamwork, innovation, and environmental responsibility.
+        </p>
+      </div>
+    </div>
+
+    <!-- Badminton -->
+    <div class="achievement-card">
+      <img src="/Assets/badmiton.png" alt="Badminton Player">
+
+      <div class="achievement-text">
+        <h3>Badminton Player</h3>
+        <p>
+          I have been training in badminton since childhood through a professional
+          academy. I won multiple junior and super senior level matches and became
+          a state-level badminton player.
+        </p>
+      </div>
+    </div>
+
+    <!-- Chess -->
+    <div class="achievement-card">
+      <img src="/Assets/chess.png" alt="Chess Player">
+
+      <div class="achievement-text">
+        <h3>Chess Player</h3>
+        <p>
+          I am a state-level junior chess player. During my 7th standard, I won
+          6 to 7 matches against strong opponents, improving my strategic thinking
+          and focus.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+<section class="contact reveal" id="contact">
+
+  <h2 class="title">Get in Touch</h2>
+  <p class="subtitle">
+    I’m always open to learning, collaboration, and new opportunities.
+    Feel free to reach out.
+  </p>
+
+  <div class="cards">
+
+    <a href="mailto:jothi7542joe@gmail.com" class="card email">
+      <i class="fa-solid fa-envelope"></i>
+      <div>
+        <h4>Email</h4>
+        <p>jothi7542joe@gmail.com</p>
+      </div>
+    </a>
+
+    <a href="https://github.com/Jothi7542" target="_blank" class="card github">
+      <i class="fa-brands fa-github"></i>
+      <div>
+        <h4>GitHub</h4>
+        <p>github.com/Jothi</p>
+      </div>
+    </a>
+
+    <a href="https://www.linkedin.com/in/jothi-s-783b7b374/" target="_blank" class="card linkedin">
+      <i class="fa-brands fa-linkedin-in"></i>
+      <div>
+        <h4>LinkedIn</h4>
+        <p>linkedin.com/in/Jothi</p>
+      </div>
+    </a>
+    
+    <a href="https://drive.google.com/file/d/1IxfT76UfPv_3UAwnKBbbvllXOFzi-yXJ/view?usp=sharing" target="_blank" class="card resume center-below">
+  <i class="fa-solid fa-file-lines"></i>
+  <div>
+    <h4>Resume</h4>
+    <p>Download my resume</p>
+  </div>
+</a>
+
+  </div>
+</section>
+  <footer class="footer">
+  <div class="footer-content">
+    <h3>Jothi S</h3>
+    <p>Web Developer • FastAPI • UI Designer</p>
+
+    <div class="footer-line"></div>
+
+    <div class="footer-socials">
+      <a href="https://github.com/Jothi7542" target="_blank">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/jothi-s-783b7b374/" target="_blank">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="mailto:jothi7542joe@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+
+    <p class="copyright">
+      © 2026 Jothi. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
