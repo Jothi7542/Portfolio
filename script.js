@@ -1,5 +1,3 @@
-
-
 document.addEventListener("mousemove", (e) => {
     const image = document.querySelector(".hero-image");
     const x = (window.innerWidth / 2 - e.pageX) / 30;
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reveals = document.querySelectorAll(".reveal");
 
   if (!("IntersectionObserver" in window)) {
-    // fallback for old browsers
+    
     reveals.forEach(el => el.classList.add("show"));
     return;
   }
@@ -58,14 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach(card => {
     card.addEventListener("click", () => {
-
-      // remove active from all
       cards.forEach(c => c.classList.remove("active"));
-
-      // add active
       card.classList.add("active");
 
-      // WORD BY WORD ANIMATION
       const textBox = card.querySelector(".achievement-text p");
       const text = textBox.innerText;
 

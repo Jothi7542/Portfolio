@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> -->
+    
 
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+
 <nav class="navbar">
     <div class="logo">Jothi.</div>
     <ul class="nav-links">
@@ -24,32 +24,22 @@
     </ul>
 </nav>
 
-<!-- HERO SECTION -->
+
 <section class="hero">
 
-    <!-- BACKGROUND TEXT -->
+   
     <h1 class="bg-text">
   <span class="bg-left">HI</span>
   <span class="bg-right">I'M</span>
 </h1>
-
-
-
-    <!-- MAIN NAME -->
     <h2 class="main-name">JOTHI</h2>
-
-    <!-- IMAGE -->
     <div class="hero-image">
-        <img src="/Assets/kurti.jpg" alt="Profile">
+        <img src="./Assets/kurti.jpg" alt="Profile">
     </div>
-
-    <!-- SUB TEXT -->
     <p class="subtitle">
         A passionate learner who believes every skill is a new chapter.
     </p>
-
 </section>
-
 
 <section class="skills-section" id="skills">
     <h2 class="skills-title reveal">Skills</h2>
@@ -132,7 +122,7 @@ reveals.forEach(el => observer.observe(el));
 
   <div class="projects-grid">
 
-    <!-- PROJECT 1 -->
+    
     <div class="project-card reveal">
       <h3>ZUKART</h3>
       <span class="project-type">50 Days Project</span>
@@ -150,7 +140,6 @@ reveals.forEach(el => observer.observe(el));
       <a href="https://jothi7542.github.io/ZUKART-Static-website/"  class="project-btn">View on GitHub</a>
     </div>
 
-    <!-- PROJECT 2 -->
     <div class="project-card reveal">
       <h3>Counselly</h3>
       <span class="project-type">Full Stack Project</span>
@@ -232,14 +221,13 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="life-images slider">
-      <img src="/Assets/pro_cer.jpg" class="active">
-      <img src="/Assets/sriraj.jpg">
-      <img src="/Assets/pamphlet.jpg">
-      <img src="/Assets/dj_mam.jpg">
+      <img src="./Assets/pro_cer.jpg" class="active">
+      <img src="./Assets/sriraj.jpg">
+      <img src="./Assets/pamphlet.jpg">
+      <img src="./Assets/dj_mam.jpg">
     </div>
   </div>
 
-  <!-- PROJECT 2 -->
   <div class="life-card reveal">
     <div class="life-text">
       <h3>Workplace Study Project</h3>
@@ -276,7 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* Reveal animation */
   const reveals = document.querySelectorAll('.reveal');
 
   if ('IntersectionObserver' in window) {
@@ -295,12 +282,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* Image slider */
+
    document.querySelectorAll('.life-images').forEach(box => {
     const imgs = box.querySelectorAll('img');
     let i = 0;
 
-    imgs[0].classList.add('active'); // first image visible
+    imgs[0].classList.add('active'); 
 
     setInterval(() => {
       imgs[i].classList.remove('active');
@@ -317,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div class="about-container">
 
-    <!-- LEFT SIDE -->
+   
     <div class="about-left reveal">
       <p class="about-tag">A person who loves to</p>
 
@@ -344,7 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
-    <!-- RIGHT SIDE -->
+  
     <div class="about-right reveal">
       <h3>Hello everyone,</h3>
 
@@ -382,7 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <section class="about-page">
 
-  <!-- HOBBIES -->
+ 
   <div class="hobbies-section">
     <h2 class="section-title center">My Hobbies</h2>
 
@@ -395,7 +382,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>Craft</span>
         <span>Listening Songs</span>
 
-        <!-- duplicate -->
         <span>Dance</span>
         <span>Painting</span>
         <span>Drawing</span>
@@ -406,15 +392,12 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   </div>
 
-
-  <!-- ACHIEVEMENTS -->
   <div class="achievements-wrapper">
 
   <h2 class="section-title center">Achievements</h2>
 
   <div class="achievement-row">
 
-    <!-- World Record -->
     <div class="achievement-card active">
       <img src="/Assets/certificate_of.png" alt="World Record">
 
@@ -427,8 +410,6 @@ document.addEventListener("DOMContentLoaded", () => {
         </p>
       </div>
     </div>
-
-    <!-- Badminton -->
     <div class="achievement-card">
       <img src="/Assets/badmiton.png" alt="Badminton Player">
 
@@ -442,7 +423,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
-    <!-- Chess -->
     <div class="achievement-card">
       <img src="/Assets/chess.png" alt="Chess Player">
 
