@@ -769,7 +769,6 @@ body {
   justify-content: center; 
 }
 
-
 .contact .card {
   display: flex;
   justify-content: center;
@@ -780,10 +779,6 @@ body {
   border-radius: 20px;
   text-decoration: none;
   color: #eae6d8;
-  max-width: 1100px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  margin: 0 auto; 
   width: 420px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
@@ -792,7 +787,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 
 .contact .card::before {
   content: "";
@@ -817,7 +811,6 @@ body {
   opacity: 1;
 }
 
-
 .contact .card i {
   font-size: 2.2rem;
   color: #f3d27a;
@@ -840,7 +833,6 @@ body {
   color: #d6d3c5;
 }
 
-
 .contact.reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -851,6 +843,7 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
 .contact .card.resume i {
   color: #f3d27a; 
 }
@@ -859,14 +852,11 @@ body {
   box-shadow: 0 30px 70px rgba(243, 210, 122, 0.35);
 }
 
+/* FIXED: Removed grid-column span, simplified centering */
 .contact .card.center-below {
-  grid-column: 1 / -1;  
-  max-width: 100%;
-  justify-self: center;
-  /* margin: 40px auto 0;   */
-  width: 420px;   
+  width: 420px;
+  margin: 0 auto;
 }
-
 
 @media (max-width: 600px) {
   .contact > .title {
@@ -876,6 +866,10 @@ body {
   .contact .card {
     flex-direction: column;
     text-align: center;
+  }
+  
+  .contact .cards {
+    grid-template-columns: 1fr;
   }
 }
 .footer {
