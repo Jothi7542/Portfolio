@@ -208,8 +208,8 @@ html{
 
   --zigzag: 0px;
 
-  opacity: 0;
-  animation: skillReveal 0.8s ease forwards;
+  opacity: 1;
+  animation: floatSkill 4s ease-in-out infinite;
   transform: translateY(calc(var(--zigzag) + 40px));
 }
 
@@ -238,9 +238,10 @@ html{
 }
 
 .skill-box p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #cfcfcf;
+  font-family: serif;
 }
 
 .skill-box:hover {
@@ -260,21 +261,28 @@ html{
 }
 
 
-.skill-box:nth-child(1) { animation-delay: 0.1s; }
-.skill-box:nth-child(2) { animation-delay: 0.2s; }
-.skill-box:nth-child(3) { animation-delay: 0.3s; }
-.skill-box:nth-child(4) { animation-delay: 0.4s; }
-.skill-box:nth-child(5) { animation-delay: 0.5s; }
-.skill-box:nth-child(6) { animation-delay: 0.6s; }
-.skill-box:nth-child(7) { animation-delay: 0.7s; }
-.skill-box:nth-child(8) { animation-delay: 0.8s; }
+.skill-box:nth-child(1) { animation-delay: 0s; }
+.skill-box:nth-child(2) { animation-delay: 0.4s; }
+.skill-box:nth-child(3) { animation-delay: 0.8s; }
+.skill-box:nth-child(4) { animation-delay: 1.2s; }
+.skill-box:nth-child(5) { animation-delay: 1.6s; }
+.skill-box:nth-child(6) { animation-delay: 2s; }
+.skill-box:nth-child(7) { animation-delay: 2.4s; }
+.skill-box:nth-child(8) { animation-delay: 2.8s; }
 
-@keyframes skillReveal {
-  to {
-    opacity: 1;
+
+@keyframes floatSkill {
+  0% {
+    transform: translateY(var(--zigzag));
+  }
+  50% {
+    transform: translateY(calc(var(--zigzag) - 12px));
+  }
+  100% {
     transform: translateY(var(--zigzag));
   }
 }
+
 
 @media (max-width: 992px) {
   .skills-zigzag {
@@ -293,17 +301,37 @@ html{
   padding: 100px 8%;
   color: #f5f5f5;
 }
+.project-image {
+  width: 100%;
+  height: 190px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.05);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
 
 .projects-header h2 {
   font-size: 52px;
   margin-bottom: 12px;
   color: #bf7a7e;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .projects-header p {
   max-width: 520px;
   color: #b9b1a3;
   line-height: 1.6;
+  font-family: serif;
+  font-size: 20px;
 }
 
 .projects-grid {
@@ -316,17 +344,21 @@ html{
 .project-card {
   background: linear-gradient(
     160deg,
-    rgba(212,175,55,0.15),
-    rgba(0,0,0,0.85)
+    rgba(191,122,126,0.22),
+    rgba(10,10,10,0.95)
   );
   border-radius: 22px;
   padding: 36px;
   box-shadow:
-    0 0 0 1px rgba(212,175,55,0.25),
-    0 30px 80px rgba(0,0,0,0.8);
+    0 0 0 1px rgba(191,122,126,0.35),
+    0 30px 80px rgba(0,0,0,0.85);
   transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
+}
+
+.project-image {
+  border: 1px solid rgba(191,122,126,0.35);
 }
 
 .project-card::before {
@@ -335,8 +367,8 @@ html{
   inset: 0;
   background: radial-gradient(
     circle at top right,
-    rgba(212,175,55,0.25),
-    transparent 60%
+    rgba(191,122,126,0.25),
+    transparent 65%
   );
   opacity: 0;
   transition: 0.5s;
@@ -347,16 +379,23 @@ html{
 }
 
 .project-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  /* box-shadow:
-    0 0 0 1px rgba(245, 245, 242, 0.6),
-    0 50px 120px rgb(247, 246, 244); */
+  transform: translateY(-14px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.35),
+    0 40px 100px rgba(191,122,126,0.35);
 }
 
+.project-card:hover .project-image img {
+  transform: scale(1.06);
+  filter: brightness(1) contrast(1.08);
+}
+
+
 .project-card h3 {
-  font-size: 28px;
+  font-size: 30px;
   color: #bf7a7e;
   margin-bottom: 6px;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .project-type {
@@ -369,6 +408,8 @@ html{
   margin: 22px 0;
   color: #c9c2b8;
   line-height: 1.7;
+  font-family: serif;
+  font-size: 20px;
 }
 
 .tech-stack {
@@ -394,6 +435,8 @@ html{
   background: #bf7a7e;
   color: #0b0b0b;
   font-weight: 600;
+  font-family: serif;
+  font-size: 18px;
   text-decoration: none;
   transition: 0.4s;
    pointer-events: auto;
@@ -401,6 +444,8 @@ html{
 
 .project-btn:hover {
   transform: scale(1.05);
+  background: #fff;
+  color: #bf7a7e;
 }
 .project-card::before,
 .project-card::after {
@@ -421,7 +466,7 @@ html{
 .section-title {
   font-size: 3rem;
   margin-bottom: 80px;
-  color: #f3d27a;
+  color: #bf7a7e;
 }
 
 .life-card {
@@ -434,19 +479,24 @@ html{
 
 .life-text h3 {
   font-size: 2rem;
-  color: #f5d77a;
+  color: #d19699;
   margin-bottom: 10px;
+  font-family: serif;
 }
 
 .life-text .sub {
-  color: #c7a54a;
+  color: #bf7a7e;
   margin-bottom: 20px;
+  font-family: serif;
+  font-size: 20px;
 }
 
 .life-text p {
   line-height: 1.8;
   color: #d6d3c5;
   margin-bottom: 18px;
+  font-family: 'Cormorant Garamond';
+  font-size: 20px;
 }
 
 .life-images {
@@ -471,7 +521,7 @@ html{
   display: inline-block;
   margin-top: 20px;
   padding: 14px 32px;
-  background: linear-gradient(135deg,#f0c75e,#b78a1e);
+  background: linear-gradient(135deg, #d9a0a4, #bf7a7e);
   color: #000;
   border-radius: 30px;
   font-weight: 600;
@@ -509,16 +559,17 @@ html{
 }
 
  .about-title {
-  font-size: 3.2rem;
+  font-size: 3.3rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 10px;
-  color: #f1d27a;
+  color: #bf7a7e;
   letter-spacing: 2px;
   position: relative;
   text-align: center;
   margin-left: 5%;
   margin-right: auto;
+  font-family: 'Cormorant Garamond'
 
 }
 .about-container {
@@ -536,7 +587,7 @@ html{
   content: "";
   width: 100px;
   height: 2px;
-  background: rgba(241,210,122,0.6);
+  background:  rgb(191, 122, 126);
   display: block;
   margin: 18px auto 0;
 }
@@ -545,7 +596,7 @@ html{
   margin-top: 90px;
   font-size: 2.3rem;
   color: #aaa;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family:  serif;
 }
 
 .about-flow {
@@ -564,7 +615,7 @@ html{
 
 .flow-item i {
   font-size: 34px;
-  color: #e6c46a;
+  color: #bf7a7e;
 }
 
 .flow-item span {
@@ -575,7 +626,7 @@ html{
 .flow-arrow {
   width: 2px;
   height: 40px;
-  background: linear-gradient(#e6c46a, transparent);
+  background: linear-gradient(135deg, #d9a0a4, #bf7a7e, transparent);
   margin-left: 16px;
   animation: pulse 2s infinite;
 }
@@ -583,14 +634,16 @@ html{
 .about-right h3 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #f1d27a;
+  color: #bf7a7e;
+  font-family:  serif;
 }
 
 .about-right p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.9;
   margin-bottom: 18px;
   color: #d0d0d0;
+  font-family:  serif;
 }
 
 
@@ -631,7 +684,7 @@ html{
 }
 .section-title {
   font-size: 52px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond';
   margin-bottom: 40px;
 }
 
@@ -654,7 +707,8 @@ html{
 }
 
 .hobby-track span {
-  font-size: 20px;
+  font-family: serif;
+  font-size: 25px;
   color: #ddd;
   white-space: nowrap;
 }
@@ -737,10 +791,14 @@ html{
   animation: wordReveal 0.4s ease forwards;
 }
 .achievement-text h3 {
-  color: #E6C27A; 
+  color: #bf7a7e;
+  font-family: serif; 
+  font-size: 20px;
 }
 .achievement-text p {
   color: #e0e0e0; 
+  font-family:'Cormorant Garamond' ;
+  font-size: 20px;
 }
 
 
@@ -755,7 +813,7 @@ html{
 
 .contact > .title {
   font-size: 3.2rem;
-  color: #f3d27a;
+  color:#bf7a7e;
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
@@ -765,7 +823,7 @@ html{
   margin: 0 auto 70px;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #cfc9b8;
+  color: #cbb3b5;
 }
 
 
@@ -811,7 +869,9 @@ html{
 
 .contact .card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 30px 70px rgba(243, 210, 122, 0.25);
+  box-shadow:
+    0 0 0 1px rgba(191,122,126,0.35),
+    0 30px 80px rgba(0,0,0,0.85);
 }
 
 .contact .card:hover::before {
@@ -820,7 +880,7 @@ html{
 
 .contact .card i {
   font-size: 2.2rem;
-  color: #f3d27a;
+  color: #bf7a7e;
   min-width: 40px;
   transition: transform 0.4s ease;
 }
@@ -832,12 +892,12 @@ html{
 .contact .card h4 {
   font-size: 1.3rem;
   margin-bottom: 4px;
-  color: #f6dfa0;
+  color: #bf7a7e;
 }
 
 .contact .card p {
   font-size: 0.95rem;
-  color: #d6d3c5;
+  color: #d2bcbd;
 }
 
 .contact.reveal {
@@ -852,11 +912,13 @@ html{
 }
 
 .contact .card.resume i {
-  color: #f3d27a; 
+  color: #bf7a7e; 
 }
 
 .contact .card.resume:hover {
-  box-shadow: 0 30px 70px rgba(243, 210, 122, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(191,122,126,0.35),
+    0 30px 80px rgba(0,0,0,0.85);
 }
 
 /* FIXED: Removed grid-column span, simplified centering */
@@ -888,7 +950,7 @@ html{
 
 .footer-content h3 {
   font-size: 1.6rem;
-  color: #f1d27a;
+  color: #bf7a7e;
   letter-spacing: 1px;
   margin-bottom: 8px;
 }
@@ -901,7 +963,7 @@ html{
 .footer-line {
   width: 60px;
   height: 2px;
-  background: rgba(241,210,122,0.6);
+  background:  rgb(191, 122, 126);
   margin: 22px auto;
 }
 
