@@ -92,8 +92,8 @@ html{
     position: absolute;
     font-size: 240px;
     font-weight: 900;
-    letter-spacing: 25px;
-    color: rgba(255, 255, 255, 0.12);
+    letter-spacing: 20px;
+    color: rgba(255, 255, 255, 0.256);
     white-space: nowrap;
 }
 
@@ -247,7 +247,7 @@ html{
 
 .skill-box:hover {
   transform: translateY(calc(var(--zigzag) - 14px));
-  /* box-shadow: 0 30px 80px rgb(191, 122, 126); */
+
 }
 
 .skill-box:hover::after {
@@ -466,7 +466,13 @@ html{
   background: linear-gradient(180deg, #000, #0b0b0b);
   color: #eae6d8;
 }
+/* ===== Photo Essay Images Fix Only ===== */
 
+.photo-essay .life-images img {
+  height: 500px;         /* Increase height */
+  object-fit: contain;   /* Full image show agum */
+  background: #000;      /* Empty space clean ah irukum */
+}
 .section-title {
   font-size: 3rem;
   margin-bottom: 80px;
@@ -634,7 +640,74 @@ html{
   margin-left: 16px;
   animation: pulse 2s infinite;
 }
+.about-right {
+  position: relative;
+  overflow: hidden;
+}
+.about-right h3 {
+  position: relative;
+  display: inline-block;
+  animation: slideFade 1.2s ease forwards;
+  opacity: 0;
+}
+.about-right h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #bf7a7e;
+  animation: underlineExpand 1.5s ease forwards;
+  animation-delay: 0.8s;
+}
 
+
+.about-right p {
+  opacity: 0;
+  animation: textReveal 1.6s ease forwards;
+  animation-delay: 0.6s;
+  transition: 0.4s ease;
+}
+.about-right p:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(191,122,126,0.4);
+}
+
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes underlineExpand {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.about-right.reveal {
+  transform: translateY(80px);
+}
+
+.about-right.reveal.show {
+  transform: translateY(0);
+}
 .about-right h3 {
   font-size: 2rem;
   margin-bottom: 20px;
