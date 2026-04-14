@@ -644,30 +644,34 @@ html{
 .about-roadmap {
   position: relative;
   margin-top: 40px;
-  padding-left: 30px;
-  
+  padding-left: 40px; /* little extra for alignment */
 }
-.journey{
- 
+
+/* heading */
+.journey {
   font-size: 2.3rem;
   color: #aaa;
-  font-family:  serif;
+  font-family: serif;
+  margin-bottom: 20px;
 }
+
 /* vertical line */
 .about-roadmap::before {
   content: "";
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: 0;
   width: 2px;
   height: 100%;
   background: linear-gradient(#bf7a7e, transparent);
 }
 
+/* each item */
 .roadmap-item {
   display: flex;
+  align-items: center; /* FIX: alignment issue solved */
   gap: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   position: relative;
   transition: 0.3s ease;
 }
@@ -676,8 +680,8 @@ html{
 .roadmap-item::before {
   content: "";
   position: absolute;
-  left: -22px;
-  top: 10px;
+  left: -28px; /* FIX: correct alignment with line */
+  top: 35px;  /* FIX: vertically center with image */
   width: 12px;
   height: 12px;
   background: #bf7a7e;
@@ -686,50 +690,103 @@ html{
 
 /* SINGLE IMAGE */
 .roadmap-image img {
-  width: 120px;
-  height: 90px;
+  width: 130px;
+  height: 95px;
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid rgba(191,122,126,0.4);
+  flex-shrink: 0; /* FIX: prevents shrink issue */
 }
 
-/* DOUBLE IMAGE (School + College) */
+/* DOUBLE IMAGE */
 .roadmap-image.double {
   display: flex;
   gap: 10px;
 }
 
 .roadmap-image.double img {
-  width: 60px;
-  height: 90px;
+  width: 65px;
+  height: 95px;
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid rgba(191,122,126,0.4);
 }
 
-/* optional hover for double images */
+/* hover */
 .roadmap-image.double img:hover {
   transform: scale(1.08);
   transition: 0.3s ease;
 }
 
 /* TEXT */
+.roadmap-content {
+  max-width: 420px; /* FIX: prevents overflow */
+}
+
 .roadmap-content h4 {
-  font-size: 24px;
+  font-size: 20px;
   color: #bf7a7e;
   margin-bottom: 6px;
 }
 
 .roadmap-content p {
-  font-size: 20px;
+  font-size: 15px; /* FIX: too big text reduced */
   color: #ccc;
   line-height: 1.6;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* hover effect */
+/* hover */
 .roadmap-item:hover {
   transform: translateX(6px);
+}
+
+/* ========================= */
+/* ✅ RESPONSIVE FIX (IMPORTANT) */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .about-roadmap {
+    padding-left: 20px;
+  }
+
+  .about-roadmap::before {
+    left: 8px;
+  }
+
+  .roadmap-item {
+    flex-direction: column; /* STACK layout */
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .roadmap-item::before {
+    left: -16px;
+    top: 10px;
+  }
+
+  .roadmap-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .roadmap-image.double img {
+    width: 48%;
+    height: auto;
+  }
+
+  .roadmap-content {
+    max-width: 100%;
+  }
+
+  .roadmap-content h4 {
+    font-size: 18px;
+  }
+
+  .roadmap-content p {
+    font-size: 14px;
+  }
 }
 /* .about-right {
   position: relative;
